@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dyk3la7xilqt1"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" uid="uid://drxn84tgfkq8a" path="res://items/backpack_01.tres" id="2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nbwtk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_backpack"]
+size = Vector3(0.5, 0.6, 0.3)
+
+[node name="PickupBackpack" type="RigidBody3D" unique_id=606057977]
+mass = 1.5
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1010729486]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)
+mesh = SubResource("BoxMesh_nbwtk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=497378414]
+shape = SubResource("BoxShape3D_backpack")

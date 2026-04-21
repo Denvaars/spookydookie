@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bx4j2ksjecigg"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/pain_killers.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://bokhbhxrpb38m" path="res://assets/pills.glb" id="3_xygk4"]
+
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(0.3692383, 0.6704346, 0.39702392)
+
+[node name="PickupPainKillers" type="RigidBody3D" unique_id=1248275623]
+collision_layer = 2
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1173530034]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.06547609, -0.0006857901)
+shape = SubResource("1")
+
+[node name="pills" parent="." unique_id=1201310080 instance=ExtResource("3_xygk4")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)

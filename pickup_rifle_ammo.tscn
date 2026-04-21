@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d10rifleammo"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" uid="uid://djgl5v42yeumy" path="res://items/rifle_ammo.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://c4perhlct8qjl" path="res://assets/ammo_rifle.glb" id="3_jgpb1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(0.39159667, 0.14565185, 0.12)
+
+[node name="PickupRifleAmmo" type="RigidBody3D" unique_id=866321177]
+mass = 0.3
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="ammo_rifle" parent="." unique_id=188744087 instance=ExtResource("3_jgpb1")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2094875786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017810065, 0.00053833425, 0)
+shape = SubResource("BoxShape3D_1")

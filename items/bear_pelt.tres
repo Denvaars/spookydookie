@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://cb7wv3obyx368"]
+
+[ext_resource type="Script" uid="uid://e4fvndtu2sw3" path="res://inventory_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Bear Pelt"
+item_id = "bear_pelt_01"
+grid_width = 2
+grid_height = 2
+description = "Thick fur from a bear. Can be used for crafting or trading."
+stackable = true
+max_stack = 2
+weight = 6.0

@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://d0ajkt11yu4e7"]
+
+[ext_resource type="Script" uid="uid://cealkhowrq4jt" path="res://ForestGenerator.gd" id="1_forest"]
+[ext_resource type="PackedScene" uid="uid://cxqg2wvb6d5hq" path="res://player.tscn" id="1_p8n3m"]
+[ext_resource type="PackedScene" uid="uid://bwgnl4dyttqhs" path="res://pickup_binoculars.tscn" id="2_2hfll"]
+[ext_resource type="PackedScene" uid="uid://d1flashlight" path="res://pickup_flashlight.tscn" id="2_flashlight"]
+[ext_resource type="PackedScene" uid="uid://bi6sp1oqi3mkq" path="res://perk_statue.tscn" id="2_sxacm"]
+[ext_resource type="PackedScene" uid="uid://d2medkit" path="res://pickup_medkit.tscn" id="3_medkit"]
+[ext_resource type="PackedScene" uid="uid://d3bandage" path="res://pickup_bandage.tscn" id="4_bandage"]
+[ext_resource type="PackedScene" uid="uid://d4shotgun" path="res://pickup_shotgun.tscn" id="5_shotgun"]
+[ext_resource type="PackedScene" uid="uid://d5axe" path="res://pickup_axe.tscn" id="6_axe"]
+[ext_resource type="PackedScene" uid="uid://d6knife" path="res://pickup_knife.tscn" id="7_knife"]
+[ext_resource type="PackedScene" uid="uid://d7rifle" path="res://pickup_rifle.tscn" id="8_rifle"]
+[ext_resource type="PackedScene" uid="uid://d8pistol" path="res://pickup_pistol.tscn" id="9_pistol"]
+[ext_resource type="PackedScene" uid="uid://eashotshells" path="res://pickup_shotgun_shells.tscn" id="10_shotshells"]
+[ext_resource type="PackedScene" uid="uid://d10rifleammo" path="res://pickup_rifle_ammo.tscn" id="11_rifleammo"]
+[ext_resource type="PackedScene" uid="uid://d11pistolammo" path="res://pickup_pistol_ammo.tscn" id="12_pistolammo"]
+[ext_resource type="PackedScene" uid="uid://lpnixtiy0a50" path="res://pickup_flare.tscn" id="13_4bgwg"]
+[ext_resource type="PackedScene" uid="uid://byrixaijic164" path="res://pickup_lantern.tscn" id="15_7fqlb"]
+[ext_resource type="PackedScene" uid="uid://skghlcdiv6ks" path="res://pickup_flare_gun.tscn" id="17_0dbuy"]
+[ext_resource type="PackedScene" uid="uid://dtur0ikcxorp8" path="res://pickup_lighter.tscn" id="17_ga11v"]
+[ext_resource type="PackedScene" uid="uid://u1wjndi5m8r7" path="res://pickup_flare_ammo.tscn" id="18_f55p2"]
+[ext_resource type="PackedScene" path="res://campfire.tscn" id="20_ejuk2"]
+[ext_resource type="PackedScene" uid="uid://bx4j2ksjecigg" path="res://pickup_pain_killers.tscn" id="20_rptwa"]
+[ext_resource type="PackedScene" path="res://pickup_antiseptic.tscn" id="21_dny34"]
+[ext_resource type="PackedScene" uid="uid://cmrxepfovpf3d" path="res://pickup_adrenaline_syringe.tscn" id="22_bxgge"]
+[ext_resource type="PackedScene" uid="uid://df5us24i1mute" path="res://pickup_bear_meat.tscn" id="23_dny34"]
+[ext_resource type="PackedScene" uid="uid://dtpkt1hhmf3c4" path="res://pickup_battery.tscn" id="24_bxgge"]
+[ext_resource type="PackedScene" uid="uid://dyk3la7xilqt1" path="res://pickup_backpack.tscn" id="24_mebjf"]
+[ext_resource type="PackedScene" uid="uid://cx8fwpmq7p8gy" path="res://daylight_system.tscn" id="27_rmf6y"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1"]
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2"]
+size = Vector3(1, 3, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2"]
+size = Vector3(1, 3, 20)
+
+[node name="TestLevel" type="Node3D" unique_id=1166973479]
+
+[node name="PerkStatue" parent="." unique_id=1083765064 instance=ExtResource("2_sxacm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.129868, 1.22124, -444.84167)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1112494721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -450)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=202252086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=731857622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="WallNorth" type="StaticBody3D" parent="." unique_id=504255916]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.5, -460)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WallNorth" unique_id=229991829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallNorth" unique_id=1219671551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_2")
+
+[node name="WallWest" type="StaticBody3D" parent="." unique_id=424903224]
+transform = Transform3D(-1, 0, 4.371139e-08, 0, 1, 0, -4.371139e-08, 0, -1, -10, 0.5, -450)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WallWest" unique_id=2132969680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallWest" unique_id=1461447726]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_2")
+
+[node name="WallEast" type="StaticBody3D" parent="." unique_id=483491647]
+transform = Transform3D(-1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, -1, 10, 0.5, -450)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WallEast" unique_id=448197263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallEast" unique_id=2096487162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_2")
+
+[node name="Player" parent="." unique_id=2024261008 instance=ExtResource("1_p8n3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -450)
+
+[node name="Items" type="Node3D" parent="." unique_id=453048696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="PickupBinoculars" parent="Items" unique_id=1679728040 instance=ExtResource("2_2hfll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84462357, -448.75122)
+
+[node name="PickupFlashlight" parent="Items" unique_id=2143768593 instance=ExtResource("2_flashlight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.83807313, -455)
+
+[node name="PickupMedkit" parent="Items" unique_id=866400802 instance=ExtResource("3_medkit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.78446877, -455)
+
+[node name="PickupBandage" parent="Items" unique_id=1911918860 instance=ExtResource("4_bandage")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, -445)
+
+[node name="PickupShotgun" parent="Items" unique_id=1875532379 instance=ExtResource("5_shotgun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0070105, 0.47319555, -445)
+
+[node name="PickupBandage2" parent="Items" unique_id=1269786534 instance=ExtResource("4_bandage")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -457)
+
+[node name="PickupFlashlight2" parent="Items" unique_id=239014854 instance=ExtResource("2_flashlight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.9970337, -450)
+
+[node name="PickupAxe" parent="Items" unique_id=1269012443 instance=ExtResource("6_axe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.5, -450)
+
+[node name="PickupKnife" parent="Items" unique_id=994547383 instance=ExtResource("7_knife")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -450)
+
+[node name="PickupRifle" parent="Items" unique_id=715378560 instance=ExtResource("8_rifle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75480604, -457)
+
+[node name="PickupPistol" parent="Items" unique_id=255206720 instance=ExtResource("9_pistol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8909581, -443)
+
+[node name="PickupShotgunShells" parent="Items" unique_id=1073136290 instance=ExtResource("10_shotshells")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.8798475, -453)
+
+[node name="PickupRifleAmmo" parent="Items" unique_id=502463869 instance=ExtResource("11_rifleammo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -453)
+
+[node name="PickupPistolAmmo" parent="Items" unique_id=358083899 instance=ExtResource("12_pistolammo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5, -447)
+
+[node name="PickupShotgunShells2" parent="Items" unique_id=142912802 instance=ExtResource("10_shotshells")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7644508, -452.32706)
+
+[node name="PickupRifleAmmo2" parent="Items" unique_id=1550700053 instance=ExtResource("11_rifleammo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -456.70285)
+
+[node name="PickupFlare" parent="Items" unique_id=5115829 instance=ExtResource("13_4bgwg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90852535, -445.70343)
+
+[node name="PickupLantern" parent="Items" unique_id=669828216 instance=ExtResource("15_7fqlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3049545, 0.94750285, -448.11383)
+
+[node name="PickupFlareGun" parent="Items" unique_id=1685898122 instance=ExtResource("17_0dbuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.213891, 1.0648847, -442.97134)
+
+[node name="PickupFlareAmmo" parent="Items" unique_id=196563022 instance=ExtResource("18_f55p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.432798, 0.8886533, -441.52087)
+
+[node name="PickupLighter" parent="Items" unique_id=595462184 instance=ExtResource("17_ga11v")]
+transform = Transform3D(0.99954367, -0.030207055, 0, 0.030207055, 0.99954367, 0, 0, 0, 1, -2.5365322, 1.026033, -451.57135)
+
+[node name="PickupPainKillers" parent="Items" unique_id=1962324818 instance=ExtResource("20_rptwa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2645278, -451.78427)
+
+[node name="PickupAntiseptic" parent="Items" unique_id=2064456328 instance=ExtResource("21_dny34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99764395, -443.27737)
+
+[node name="PickupAdrenalineSyringe" parent="Items" unique_id=443900360 instance=ExtResource("22_bxgge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.423752, 1.3896255, -446.57532)
+
+[node name="PickupBearMeat" parent="Items" unique_id=126011429 instance=ExtResource("23_dny34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4385486, 2.3052747, -453.4154)
+
+[node name="PickupBackpack" parent="Items" unique_id=1682603255 instance=ExtResource("24_mebjf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6122456, -447.55164)
+
+[node name="PickupBattery" parent="Items" unique_id=76968370 instance=ExtResource("24_bxgge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.530114, 0.82846105, -450.454)
+
+[node name="ForestGenerator" type="Node3D" parent="." unique_id=4048959]
+script = ExtResource("1_forest")
+
+[node name="Campfire" parent="." unique_id=1223551566 instance=ExtResource("20_ejuk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5524259, -443.71472)
+
+[node name="DaylightSystem" parent="." unique_id=1026805135 instance=ExtResource("27_rmf6y")]

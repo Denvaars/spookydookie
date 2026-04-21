@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cpvcx5k65fkit"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_trunk"]
+top_radius = 0.3
+bottom_radius = 0.4
+height = 6.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_leaves"]
+top_radius = 0.1
+bottom_radius = 3.0
+height = 8.0
+
+[node name="Tree" type="Node3D" unique_id=594502274]
+
+[node name="Trunk" type="MeshInstance3D" parent="." unique_id=427347642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("CylinderMesh_trunk")
+
+[node name="Leaves" type="MeshInstance3D" parent="." unique_id=435678420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+mesh = SubResource("CylinderMesh_leaves")

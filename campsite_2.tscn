@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ciyjf31lnw3fa"]
+
+[ext_resource type="PackedScene" uid="uid://cjcely111sov4" path="res://assets/tent.glb" id="1_nmw1m"]
+[ext_resource type="PackedScene" path="res://campfire.tscn" id="2_cg07h"]
+[ext_resource type="Script" uid="uid://db1lm6i0meyvc" path="res://loot_spawner.gd" id="3_557o4"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nmw1m"]
+
+[node name="Campsite2" type="Node3D" unique_id=1143593266]
+
+[node name="tent" parent="." unique_id=1299098799 instance=ExtResource("1_nmw1m")]
+transform = Transform3D(0.64278764, 0, -0.76604444, 0, 1, 0, 0.76604444, 0, 0.64278764, -2.839585, 0, -2.5924563)
+
+[node name="tent2" parent="." unique_id=1952234337 instance=ExtResource("1_nmw1m")]
+transform = Transform3D(-0.58354115, 0, -0.8120835, 0, 1, 0, 0.8120835, 0, -0.58354115, 2.8907518, 0, -2.7346425)
+
+[node name="Campfire" parent="." unique_id=1577886014 instance=ExtResource("2_cg07h")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="InteractionBody" type="StaticBody3D" parent="Campfire" unique_id=355407089]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Campfire/InteractionBody" unique_id=307580925]
+transform = Transform3D(3.5, 0, 0, 0, 0.5, 0, 0, 0, 3.5, 0, 0.545, 0)
+shape = SubResource("CylinderShape3D_nmw1m")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1745099801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5220518, 0.51373553, 0)
+script = ExtResource("3_557o4")
+loot_table_name = "camping_supplies"
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=140638582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8026152, 0.5360844, -4.1746726)
+script = ExtResource("3_557o4")
+loot_table_name = "camping_supplies"
+
+[node name="Node3D3" type="Node3D" parent="." unique_id=1697642676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.680807, 0.33605087, -4.1746726)
+script = ExtResource("3_557o4")
+loot_table_name = "camping_supplies"

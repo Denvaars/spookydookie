@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dtpkt1hhmf3c4"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/battery.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://b06ahnvjd3ita" path="res://assets/batteries.glb" id="3_sfek4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v7qup"]
+size = Vector3(0.116760254, 0.14154053, 0.13830566)
+
+[node name="PickupBattery" type="RigidBody3D" unique_id=76968370]
+mass = 0.05
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=60224665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031463623, 0.04370728, -0.046203613)
+shape = SubResource("BoxShape3D_v7qup")
+
+[node name="batteries" parent="." unique_id=1092760528 instance=ExtResource("3_sfek4")]

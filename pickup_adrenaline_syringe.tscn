@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cmrxepfovpf3d"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/adrenaline_syringe.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://baxaox7yokit7" path="res://assets/syringe.glb" id="3_n7grw"]
+
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(1.2277893, 0.22580262, 0.22467652)
+
+[node name="PickupAdrenalineSyringe" type="RigidBody3D" unique_id=827402513]
+collision_layer = 2
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2139919695]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.06524931, -7.309043e-05, 0.000116270036)
+shape = SubResource("1")
+
+[node name="syringe" parent="." unique_id=1369174443 instance=ExtResource("3_n7grw")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)

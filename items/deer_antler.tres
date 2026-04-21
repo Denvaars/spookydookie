@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://cmrypajoquxrl"]
+
+[ext_resource type="Script" uid="uid://e4fvndtu2sw3" path="res://inventory_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Deer Antler"
+item_id = "deer_antler_01"
+grid_height = 2
+description = "Sharp deer antler. Can be used for crafting tools."
+stackable = true
+max_stack = 2
+weight = 4.0

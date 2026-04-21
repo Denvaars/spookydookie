@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cxqg2wvb6d5hq"]
+
+[ext_resource type="Script" uid="uid://bgycjo2hehugs" path="res://player.gd" id="1_8r3xp"]
+[ext_resource type="Script" uid="uid://2epkkpojlaoh" path="res://fps_weapon_controller.gd" id="2_sweqy"]
+[ext_resource type="PackedScene" uid="uid://c5wjx2y3xfhqv" path="res://ui.tscn" id="2_ui"]
+[ext_resource type="PackedScene" uid="uid://ckfe6y40y2f7o" path="res://assets/animations_fps.glb" id="3_hqtel"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1"]
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" unique_id=343731295]
+script = ExtResource("1_8r3xp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1742127458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_1")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=687175194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+current = true
+
+[node name="Flashlight" type="SpotLight3D" parent="Camera3D" unique_id=831310859]
+light_color = Color(1, 0.95, 0.85, 1)
+light_energy = 10.0
+light_volumetric_fog_energy = 0.5
+shadow_enabled = true
+spot_range = 50.0
+spot_angle_attenuation = 2.0
+
+[node name="InteractRaycast" type="RayCast3D" parent="Camera3D" unique_id=638329828]
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 2
+
+[node name="FPSArms" type="Node3D" parent="Camera3D" unique_id=2074457775]
+transform = Transform3D(-1, 0, -9.059749e-08, 0, 1, 0, 1.509958e-07, 0, -0.6, 0, -0.04, -0.175)
+script = ExtResource("2_sweqy")
+
+[node name="animations_fps" parent="Camera3D/FPSArms" unique_id=689311422 instance=ExtResource("3_hqtel")]
+
+[node name="UI" parent="." unique_id=584892773 instance=ExtResource("2_ui")]

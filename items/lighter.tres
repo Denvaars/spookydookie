@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://cy3wmuhion5vu"]
+
+[ext_resource type="Script" uid="uid://e4fvndtu2sw3" path="res://inventory_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Lighter"
+item_id = "lighter_01"
+description = "Pocket lighter with dim flame. Toggle on/off freely."
+weight = 0.5

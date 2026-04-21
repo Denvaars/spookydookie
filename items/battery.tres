@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://1lps03psay1f"]
+
+[ext_resource type="Script" uid="uid://e4fvndtu2sw3" path="res://inventory_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Flashlight Battery"
+item_id = "battery_01"
+description = "Replacement battery for flashlight. Compact and essential."
+stackable = true
+max_stack = 2
+weight = 0.3

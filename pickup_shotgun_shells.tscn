@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://eashotshells"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/shotgun_shells.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dqm3paowy8op0" path="res://assets/ammo_shotgun.glb" id="3_v4aco"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(0.20164001, 0.14542907, 0.20150024)
+
+[node name="PickupShotgunShells" type="RigidBody3D" unique_id=944912304]
+mass = 0.4
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1936761237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0003158599, 0.0012368727, -0.00015564263)
+shape = SubResource("BoxShape3D_1")
+
+[node name="ammo_shotgun" parent="." unique_id=449702119 instance=ExtResource("3_v4aco")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://bglkrr2r4k3dy"]
+
+[ext_resource type="Script" uid="uid://e4fvndtu2sw3" path="res://inventory_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Flare Gun"
+item_id = "flare_gun_01"
+grid_height = 2
+description = "Single-shot flare gun. Fires illuminating flare projectiles."
+weight = 3.0

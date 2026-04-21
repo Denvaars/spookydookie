@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bxcq7mu0dp087"]
+
+[ext_resource type="PackedScene" uid="uid://dlhge841yhqqj" path="res://assets/forest/grass_1.glb" id="1_wotv2"]
+[ext_resource type="PackedScene" uid="uid://c6elsq8dw6t8x" path="res://assets/forest/grass_2.glb" id="2_ghwc3"]
+[ext_resource type="PackedScene" uid="uid://d2xbgo7vwnknr" path="res://assets/forest/grass_3.glb" id="3_abvon"]
+[ext_resource type="PackedScene" uid="uid://dbpguhk6pwws6" path="res://assets/forest/grass_4.glb" id="4_hkcf0"]
+
+[node name="Node3D" type="Node3D" unique_id=1345716696]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=339248611]
+
+[node name="grass_1" parent="Node3D" unique_id=1500113169 instance=ExtResource("1_wotv2")]
+
+[node name="grass_2" parent="Node3D" unique_id=504525236 instance=ExtResource("2_ghwc3")]
+
+[node name="grass_3" parent="Node3D" unique_id=1199469714 instance=ExtResource("3_abvon")]
+
+[node name="grass_4" parent="Node3D" unique_id=1226559336 instance=ExtResource("4_hkcf0")]

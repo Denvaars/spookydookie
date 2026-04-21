@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cljlsjcnxerk7"]
+
+[ext_resource type="PackedScene" uid="uid://b74v6b1v6lro7" path="res://assets/forest/pine_tree_n_2_1.glb" id="1_3hic0"]
+[ext_resource type="PackedScene" uid="uid://d7712mx73qhl" path="res://assets/forest/pine_tree_n_2_2.glb" id="2_yjby8"]
+[ext_resource type="PackedScene" uid="uid://buyi06wq33qkf" path="res://assets/forest/pine_tree_n_2_3.glb" id="3_182br"]
+[ext_resource type="PackedScene" uid="uid://dypq2hf7tmb8f" path="res://assets/forest/pine_tree_n_2_4.glb" id="4_b6poe"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_h7edy"]
+height = 2.3985503
+radius = 0.08886719
+
+[node name="Node3D" type="Node3D" unique_id=914648382]
+
+[node name="pine_tree_n_2_1" parent="." unique_id=1444149657 instance=ExtResource("1_3hic0")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pine_tree_n_2_1" unique_id=1409479344]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pine_tree_n_2_1/StaticBody3D" unique_id=985668895]
+transform = Transform3D(1, 0, 0, 0, 1.8186798, 0, 0, 0, 1, 0, 4.4962068, 0)
+shape = SubResource("CylinderShape3D_h7edy")
+
+[node name="pine_tree_n_2_2" parent="." unique_id=2128766465 instance=ExtResource("2_yjby8")]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pine_tree_n_2_2" unique_id=1375954526]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pine_tree_n_2_2/StaticBody3D" unique_id=1602808177]
+transform = Transform3D(1, 0, 0, 0, 1.8186798, 0, 0, 0, 1, 0, 4.00895, 0)
+visible = false
+shape = SubResource("CylinderShape3D_h7edy")
+
+[node name="pine_tree_n_2_3" parent="." unique_id=949100101 instance=ExtResource("3_182br")]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pine_tree_n_2_3" unique_id=1511538219]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pine_tree_n_2_3/StaticBody3D" unique_id=1704013813]
+transform = Transform3D(1, 0, 0, 0, 1.8186798, 0, 0, 0, 1, 0, 2.695761, 0)
+visible = false
+shape = SubResource("CylinderShape3D_h7edy")
+
+[node name="pine_tree_n_2_4" parent="." unique_id=1601925934 instance=ExtResource("4_b6poe")]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pine_tree_n_2_4" unique_id=2108949310]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pine_tree_n_2_4/StaticBody3D" unique_id=1800237903]
+transform = Transform3D(1, 0, 0, 0, 1.8186798, 0, 0, 0, 1, 0, 2.1894848, 0)
+visible = false
+shape = SubResource("CylinderShape3D_h7edy")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://lpnixtiy0a50"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/flare.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://sh2vyyyq0jo5" path="res://assets/flare_unlit.glb" id="3_wn452"]
+
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(0.05, 0.40393677, 0.05510254)
+
+[node name="PickupFlare" type="RigidBody3D" unique_id=644190076]
+collision_layer = 2
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1943551223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022763055, -0.0012573227)
+shape = SubResource("1")
+
+[node name="flare_unlit" parent="." unique_id=1589595546 instance=ExtResource("3_wn452")]

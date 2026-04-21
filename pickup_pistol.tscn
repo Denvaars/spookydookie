@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d8pistol"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/pistol.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://bbcpwvadakgn2" path="res://assets/revolver.glb" id="3_sjsgc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(0.41624022, 0.062387086, 0.19311523)
+
+[node name="PickupPistol" type="RigidBody3D" unique_id=1206838693]
+mass = 0.8
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=447691677]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.03071963, -6.2556006e-05, -0.032024205)
+shape = SubResource("BoxShape3D_1")
+
+[node name="revolver" parent="." unique_id=725701498 instance=ExtResource("3_sjsgc")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.009760864, 0, 0)

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Perk" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Perk.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+perk_name = "Fast Hands"
+perk_id = "fast_hands"
+description = "Lightning quick reloads. 40% faster reload speed."
+reload_speed_multiplier = 1.4

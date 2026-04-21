@@ -1,0 +1,270 @@
+[gd_scene format=3 uid="uid://cx8fwpmq7p8gy"]
+
+[ext_resource type="Environment" uid="uid://c5jfv5qotv6r" path="res://assets/resources/raffa_environment2.tres" id="1_ove5j"]
+[ext_resource type="Script" uid="uid://trcc02scdngc" path="res://DaylightSystem.gd" id="1_script"]
+[ext_resource type="Shader" uid="uid://dtswl3t4mxr3y" path="res://assets/resources/StarrySky.gdshader" id="2_iaveg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uuw0g"]
+sky_top_color = Color(0.18886635, 0.2514177, 0.41774336, 1)
+sky_horizon_color = Color(0.84705883, 0.5294118, 0.5568628, 1)
+sky_energy_multiplier = 11.55
+
+[sub_resource type="Animation" id="Animation_j84ds"]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DaylightSystem/Lights:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.426698, 0.837077, 2.0461e-08)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DaylightSystem/Lights/DirectionalLight3D:light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.643137, 0.65098, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DaylightSystem/Lights/DirectionalLight3D:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DaylightSystem/WorldEnvironment:environment:background_energy_multiplier")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DaylightSystem/WorldEnvironment:environment:fog_light_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.843137, 0.666667, 0.588235, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DaylightSystem/DirectionalLight3D2:light_energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.568]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DaylightSystem/WorldEnvironment:environment:volumetric_fog_density")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0195]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DaylightSystem/WorldEnvironment:environment:sky:sky_material")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ProceduralSkyMaterial_uuw0g")]
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pc2fv"]
+shader = ExtResource("2_iaveg")
+shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
+shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
+shader_parameter/star_hue_offset = 0.6
+shader_parameter/star_intensity = 0.08
+shader_parameter/star_twinkle_speed = 0.8
+shader_parameter/star_twinkle_intensity = 0.2
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 10.0
+shader_parameter/layers_count = 3
+
+[sub_resource type="Animation" id="Animation_rs2ub"]
+resource_name = "light_anim"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DaylightSystem/Lights:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.426698, 0.837077, 2.0461e-08), Vector3(-0.426698, 0.837077, 2.71626)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DaylightSystem/Lights/DirectionalLight3D:light_color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0.53333336, 1.2333333, 1.7333333, 2.7333333, 3.7333333, 4.2333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.478431, 0.541176, 1), Color(1, 0.592157, 0.717647, 1), Color(1, 0.92549, 0.92549, 1), Color(1, 0.92549, 0.92549, 1), Color(1, 0.698039, 0.556863, 1), Color(1, 0.556863, 0.627451, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DaylightSystem/Lights/DirectionalLight3D:light_energy")
+tracks/2/interp = 2
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0.40000004, 1.2333333, 2.2333333, 3.7333333, 4.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.05, 10.0, 14.0, 10.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DaylightSystem/WorldEnvironment:environment:background_energy_multiplier")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.03333336, 0.43333334, 1.1666666, 3.7333333, 4.083333, 4.4333334, 4.783334, 6),
+"transitions": PackedFloat32Array(1, 1, 2.4622886, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 0.01, 1.0, 1.0, 0.1, 0.0, 0.1, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DaylightSystem/WorldEnvironment:environment:fog_light_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0.13333336, 0.73333335, 3.7333333, 4.633333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.0941176, 0.141176, 0.192157, 1), Color(0.843137, 0.666667, 0.588235, 1), Color(0.843137, 0.666667, 0.588235, 1), Color(0.0941176, 0.141176, 0.192157, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DaylightSystem/DirectionalLight3D2:light_energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = false
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.0333333, 4.2333336, 4.7333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.5, 0.568, 0.568, 0.5]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DaylightSystem/WorldEnvironment:environment:volumetric_fog_density")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.3333334, 1.9333334, 3.2333333, 3.7333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0195, 0.0065, 0.0065, 0.0195]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DaylightSystem/WorldEnvironment:environment:sky:sky_material")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.03333336, 4.4333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_pc2fv"), SubResource("ProceduralSkyMaterial_uuw0g"), SubResource("ShaderMaterial_pc2fv")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c87bs"]
+_data = {
+&"RESET": SubResource("Animation_j84ds"),
+&"light_anim": SubResource("Animation_rs2ub")
+}
+
+[node name="DaylightSystem" type="Node3D" unique_id=1026805135 groups=["daylight_system"]]
+script = ExtResource("1_script")
+
+[node name="DayAndNightCycle" type="AnimationPlayer" parent="." unique_id=666430654]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_c87bs")
+autoplay = &"light_anim"
+speed_scale = 0.01
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1905152032]
+environment = ExtResource("1_ove5j")
+
+[node name="Lights" type="Node3D" parent="." unique_id=1535996736]
+transform = Transform3D(0.66963637, -0.30737436, 0.67609763, 1.8626407e-08, 0.9103368, 0.4138672, -0.7426887, -0.27714035, 0.60959524, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights" unique_id=1063668131]
+transform = Transform3D(0.33051404, 2.9802322e-08, 0.9438015, 0, 1.0000006, 1.4901161e-08, -0.94380105, -2.9802322e-08, 0.33051372, 100.00001, 3.8146973e-06, -3.8146973e-06)
+layers = 3
+light_color = Color(1, 0.643137, 0.65098, 1)
+light_energy = 10.0
+light_indirect_energy = 0.5
+light_volumetric_fog_energy = 2.0
+light_cull_mask = 4293918723
+shadow_enabled = true
+shadow_bias = 0.008
+shadow_opacity = 0.95
+shadow_blur = 2.0
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=725201186]
+transform = Transform3D(0.29987106, 0.94752425, 0.11079352, 0.13391903, -0.15679906, 0.97850895, 0.9445332, -0.27858916, -0.17391104, 0, 30.0762, 0)
+layers = 3
+light_color = Color(0.435294, 0.784314, 1, 1)
+light_energy = 0.568
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 0.0
+light_cull_mask = 4293918723
+shadow_enabled = true
+shadow_bias = 0.017
+shadow_blur = 5.0
+directional_shadow_max_distance = 0.0
+sky_mode = 1

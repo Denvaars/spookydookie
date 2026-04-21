@@ -1,0 +1,6 @@
+[gd_resource type="Sky" format=3 uid="uid://dymtvvf2vg7m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gi1u3"]
+
+[resource]
+sky_material = SubResource("ShaderMaterial_gi1u3")

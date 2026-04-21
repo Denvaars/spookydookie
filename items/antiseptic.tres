@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://c1j0vo3sooyks"]
+
+[ext_resource type="Script" uid="uid://e4fvndtu2sw3" path="res://inventory_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Antiseptic"
+item_id = "antiseptic_01"
+description = "Medical antiseptic. Stops bleeding and prevents infection."
+stackable = true
+max_stack = 5
+weight = 0.5

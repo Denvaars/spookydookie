@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d7rifle"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/rifle.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://oa78glc0u5ek" path="res://assets/rifle.glb" id="3_06q53"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(2.0637696, 0.10018921, 0.29625)
+
+[node name="PickupRifle" type="RigidBody3D" unique_id=191290647]
+mass = 4.0
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1178514232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22377932, 0.004135132, 0.08234376)
+shape = SubResource("BoxShape3D_1")
+
+[node name="rifle" parent="." unique_id=646759084 instance=ExtResource("3_06q53")]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://day05n4r6pxk8"]
+
+[ext_resource type="Script" uid="uid://djxhb30dkqur3" path="res://enemy_stalker.gd" id="1_stalker"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_stalker"]
+radius = 0.3
+height = 1.8
+
+[node name="EnemyStalker" type="CharacterBody3D" unique_id=1445484306]
+script = ExtResource("1_stalker")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1260096433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_stalker")

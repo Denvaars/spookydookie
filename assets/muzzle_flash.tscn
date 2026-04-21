@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://rmsco8sfybnl"]
+
+[ext_resource type="Texture2D" uid="uid://b6kvlhbf5jvad" path="res://assets/MuzzleFlash.png" id="1_k4mlb"]
+[ext_resource type="ArrayMesh" uid="uid://chgd411k2spb" path="res://models/MuzzlePlane.obj" id="2_7gvi6"]
+[ext_resource type="Texture2D" uid="uid://c0njppnstvy4f" path="res://assets/MuzzleCone.png" id="3_juadq"]
+[ext_resource type="ArrayMesh" uid="uid://nxlntryyy60f" path="res://models/MuzzleCone.obj" id="4_3ll1f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_juadq"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_k4mlb")
+
+[sub_resource type="Curve" id="Curve_3ll1f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tlktv"]
+curve = SubResource("Curve_3ll1f")
+
+[sub_resource type="Curve" id="Curve_0egrn"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_axlen"]
+curve = SubResource("Curve_0egrn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n4eu7"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_axlen")
+color = Color(1.1189815, 0.7012277, 0.45937228, 1)
+alpha_curve = SubResource("CurveTexture_tlktv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlktv"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("3_juadq")
+
+[node name="MuzzleFlash" type="Node3D" unique_id=450254351]
+
+[node name="MuzzlePlanes" type="GPUParticles3D" parent="." unique_id=1798764228]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_juadq")
+amount = 50
+lifetime = 0.2
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_n4eu7")
+draw_pass_1 = ExtResource("2_7gvi6")
+
+[node name="MuzzleCone" type="GPUParticles3D" parent="." unique_id=771991619]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_tlktv")
+amount = 50
+lifetime = 0.2
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_n4eu7")
+draw_pass_1 = ExtResource("4_3ll1f")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MuzzleCone" unique_id=999088119]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
+light_color = Color(0.9431531, 0.60883397, 3.85046e-07, 1)
+light_energy = 50.0
+light_volumetric_fog_energy = 0.5
+spot_range = 10.0
+spot_angle = 75.0

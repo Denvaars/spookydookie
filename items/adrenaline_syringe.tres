@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://bnhf8uh1blcub"]
+
+[ext_resource type="Script" uid="uid://e4fvndtu2sw3" path="res://inventory_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Adrenaline Syringe"
+item_id = "adrenaline_syringe_01"
+grid_height = 2
+description = "Emergency adrenaline. Grants infinite stamina and 10% speed boost for 10 seconds."
+stackable = true
+max_stack = 2
+weight = 0.5

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://lighter_item_001"]
+
+[ext_resource type="Script" path="res://lighter.gd" id="1_lighter"]
+
+[node name="Lighter" type="Node3D"]
+script = ExtResource("1_lighter")

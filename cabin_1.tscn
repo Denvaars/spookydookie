@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dnca1su15y414"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_700xh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_700xh"]
+
+[node name="Cabin_1" type="Node3D" unique_id=1291869227]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1249119957]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=524367835]
+transform = Transform3D(3, 0, 0, 0, 0.25, 0, 0, 0, 6, 0, 0, 0)
+shape = SubResource("BoxShape3D_700xh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1255853086]
+transform = Transform3D(3, 0, 0, 0, 0.25, 0, 0, 0, 6, 0, 0, 0)
+mesh = SubResource("BoxMesh_700xh")

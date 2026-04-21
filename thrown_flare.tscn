@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://co1jnu3ehj0de"]
+
+[ext_resource type="Script" uid="uid://do1u54576ock1" path="res://thrown_flare.gd" id="1"]
+
+[node name="ThrownFlare" type="RigidBody3D" unique_id=910066040]
+mass = 0.1
+script = ExtResource("1")

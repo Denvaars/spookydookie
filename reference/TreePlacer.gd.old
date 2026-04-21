@@ -1,0 +1,79 @@
+class_name TreePlacer
+extends Node3D
+
+## Instantiates res://scenes/tree.tscn for every tree.
+## Material is applied in code so the tscn stays minimal.
+
+const TREE_COUNT: int          = 2000
+const PATH_CLEAR_RADIUS: float = 5.0
+const DENSITY_FREQ: float      = 0.06
+
+var _terrain: TerrainGenerator
+var _path: PathGenerator
+var _density_noise: FastNoiseLite
+
+
+func place(terrain: TerrainGenerator, path: PathGenerator, p_seed: int) -> void:
+	_terrain = terrain
+	_path    = path
+	print("TreePlacer: place() called")
+
+	# ── Load scene ────────────────────────────────────────────────────────────
+	var tree_scene: PackedScene = load("res://scenes/tree.tscn")
+	if tree_scene == null:
+		push_error("TreePlacer: load('res://scenes/tree.tscn') returned null — check file exists")
+		return
+	print("TreePlacer: scene loaded OK")
+
+	# Quick sanity-check — instantiate once and verify it has a MeshInstance3D child.
+	var probe: Node3D = tree_scene.instantiate()
+	if probe == null or probe.get_child_count() == 0:
+		push_error("TreePlacer: instantiated scene has no children — tscn nodes missing")
+		if probe: probe.free()
+		return
+	var probe_mi := probe.get_child(0) as MeshInstance3D
+	if probe_mi == null or probe_mi.mesh == null:
+		push_error("TreePlacer: child 0 is not a MeshInstance3D with a mesh")
+		probe.free()
+		return
+	probe.free()
+	print("TreePlacer: tscn validation passed — spawning trees")
+
+	# ── Material (applied in code, not in the tscn) ───────────────────────────
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = Color(0.20, 0.14, 0.08)
+	mat.roughness    = 1.0
+
+	# ── Density noise ─────────────────────────────────────────────────────────
+	_density_noise            = FastNoiseLite.new()
+	_density_noise.seed       = p_seed
+	_density_noise.noise_type = FastNoiseLite.TYPE_CELLULAR
+	_density_noise.frequency  = DENSITY_FREQ
+
+	# ── Placement loop ────────────────────────────────────────────────────────
+	var half_x := terrain.terrain_width  * 0.5 * 0.93
+	var half_z := terrain.terrain_length * 0.5 * 0.93
+	var placed := 0
+	var tries  := 0
+
+	while placed < TREE_COUNT and tries < TREE_COUNT * 6:
+		tries += 1
+		var rx := randf_range(-half_x, half_x)
+		var rz := randf_range(-half_z, half_z)
+
+		if _path.is_near_path(rx, rz, PATH_CLEAR_RADIUS):
+			continue
+
+		var ry := _terrain.get_height(rx, rz)
+
+		var tree: Node3D = tree_scene.instantiate()
+		var mi := tree.get_child(0) as MeshInstance3D
+		if mi:
+			mi.material_override = mat
+
+		tree.position   = Vector3(rx, ry, rz)
+		tree.rotation.y = randf_range(0.0, TAU)
+		add_child(tree)
+		placed += 1
+
+	print("TreePlacer: finished — placed %d / %d trees (%d tries)" % [placed, TREE_COUNT, tries])

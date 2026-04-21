@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://dch2o8l51gv3p"]
+
+[ext_resource type="Script" uid="uid://e4fvndtu2sw3" path="res://inventory_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Deer Meat"
+item_id = "deer_meat_01"
+description = "Fresh venison. Can be cooked and eaten."
+stackable = true
+max_stack = 3
+weight = 5.0

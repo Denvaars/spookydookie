@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://c42bxrcg762as"]
+
+[ext_resource type="Script" uid="uid://e4fvndtu2sw3" path="res://inventory_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Pistol"
+item_id = "pistol_01"
+grid_height = 2
+description = "A 9mm semi-automatic pistol. Reliable sidearm."
+weight = 2.5

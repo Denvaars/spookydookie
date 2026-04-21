@@ -1,0 +1,152 @@
+class_name PathGenerator
+extends Node3D
+
+## Generates the main forest trail as a random walk biased toward +Z,
+## then branches off at irregular intervals.
+## Builds flat path meshes that sit just above the terrain surface.
+
+const PATH_WIDTH: float   = 4.0    # Trail width in metres
+const STEP_LENGTH: float  = 4.0    # Distance between path waypoints
+const MAX_LATERAL: float  = 1.8    # Max sideways drift per step
+const BRANCH_CHANCE: float = 0.09  # Probability per waypoint of a branch starting
+const BRANCH_MIN: int = 6          # Min waypoints per branch
+const BRANCH_MAX: int = 18         # Max waypoints per branch
+const PATH_OFFSET: float  = 0.22   # Visual offset above terrain surface
+
+var main_path: PackedVector3Array = []
+var branches: Array[PackedVector3Array] = []
+
+# Flat 2D cache of all path points for distance queries (XZ only).
+var _all_points_2d: PackedVector2Array = []
+
+var _terrain: TerrainGenerator
+
+
+func generate(terrain: TerrainGenerator) -> void:
+	_terrain = terrain
+	_generate_main_path()
+	_generate_branches()
+	_cache_2d_points()
+	_build_path_mesh(main_path, true)
+	for branch in branches:
+		_build_path_mesh(branch, false)
+	print("PathGenerator: main path %d pts, %d branches" % [main_path.size(), branches.size()])
+
+
+# Returns true when (wx, wz) is within `radius` of any path or branch waypoint.
+func is_near_path(wx: float, wz: float, radius: float) -> bool:
+	var pos := Vector2(wx, wz)
+	var r2  := radius * radius
+	for pt in _all_points_2d:
+		if pos.distance_squared_to(pt) < r2:
+			return true
+	return false
+
+
+# ── Private ──────────────────────────────────────────────────────────────────
+
+func _generate_main_path() -> void:
+	main_path.clear()
+	var half_x := _terrain.terrain_width  * 0.5
+	var half_z := _terrain.terrain_length * 0.5
+	var start_z := -half_z * 0.9
+	var end_z   :=  half_z * 0.9
+	var cur := Vector2(0.0, start_z)
+
+	while cur.y < end_z:
+		var h := _terrain.get_height(cur.x, cur.y)
+		main_path.append(Vector3(cur.x, h + PATH_OFFSET, cur.y))
+		cur.x += randf_range(-MAX_LATERAL, MAX_LATERAL)
+		cur.x  = clampf(cur.x, -half_x * 0.5, half_x * 0.5)
+		cur.y += STEP_LENGTH
+
+
+func _generate_branches() -> void:
+	for i in range(3, main_path.size() - 3):
+		if randf() < BRANCH_CHANCE:
+			var branch := _walk_branch(main_path[i])
+			if branch.size() >= 3:
+				branches.append(branch)
+
+
+func _walk_branch(origin: Vector3) -> PackedVector3Array:
+	var branch: PackedVector3Array = []
+	branch.append(origin)
+
+	var half_x := _terrain.terrain_width  * 0.5
+	var half_z := _terrain.terrain_length * 0.5
+	var angle  := randf_range(PI * 0.15, PI * 0.85)
+	if randf() < 0.5:
+		angle = -angle
+
+	var cur   := Vector2(origin.x, origin.z)
+	var steps := randi_range(BRANCH_MIN, BRANCH_MAX)
+
+	for _i in range(steps):
+		angle  += randf_range(-0.25, 0.25)
+		cur.x  += sin(angle) * STEP_LENGTH
+		cur.y  += cos(angle) * STEP_LENGTH * 0.6
+
+		if absf(cur.x) > half_x * 0.88 or absf(cur.y) > half_z * 0.88:
+			break
+
+		var h := _terrain.get_height(cur.x, cur.y)
+		branch.append(Vector3(cur.x, h + PATH_OFFSET, cur.y))
+
+	return branch
+
+
+func _cache_2d_points() -> void:
+	_all_points_2d.clear()
+	for pt in main_path:
+		_all_points_2d.append(Vector2(pt.x, pt.z))
+	for branch in branches:
+		for pt in branch:
+			_all_points_2d.append(Vector2(pt.x, pt.z))
+
+
+func _build_path_mesh(points: PackedVector3Array, is_main: bool) -> void:
+	if points.size() < 2:
+		return
+
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+
+	var half_w := PATH_WIDTH * 0.5
+	if not is_main:
+		half_w *= 0.65
+
+	for i in range(points.size() - 1):
+		var p0  := points[i]
+		var p1  := points[i + 1]
+		var fwd := (p1 - p0)
+		fwd.y = 0.0
+		fwd = fwd.normalized()
+		var right := Vector3.UP.cross(fwd).normalized()
+
+		var v00 := p0 - right * half_w
+		var v10 := p0 + right * half_w
+		var v01 := p1 - right * half_w
+		var v11 := p1 + right * half_w
+
+		var n := Vector3.UP
+
+		st.set_normal(n); st.set_uv(Vector2(0, 0)); st.add_vertex(v00)
+		st.set_normal(n); st.set_uv(Vector2(1, 0)); st.add_vertex(v10)
+		st.set_normal(n); st.set_uv(Vector2(0, 1)); st.add_vertex(v01)
+
+		st.set_normal(n); st.set_uv(Vector2(1, 0)); st.add_vertex(v10)
+		st.set_normal(n); st.set_uv(Vector2(1, 1)); st.add_vertex(v11)
+		st.set_normal(n); st.set_uv(Vector2(0, 1)); st.add_vertex(v01)
+
+	var mat := StandardMaterial3D.new()
+	mat.albedo_color = Color(0.33, 0.26, 0.18)
+	mat.roughness    = 1.0
+	mat.metallic     = 0.0
+	mat.cull_mode    = BaseMaterial3D.CULL_DISABLED
+
+	var mesh_inst := MeshInstance3D.new()
+	mesh_inst.name = "MainPathMesh" if is_main else "BranchMesh"
+	mesh_inst.material_override = mat
+	mesh_inst.mesh = st.commit()
+	add_child(mesh_inst)

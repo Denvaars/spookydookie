@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://drxn84tgfkq8a"]
+
+[ext_resource type="Script" uid="uid://e4fvndtu2sw3" path="res://inventory_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Backpack"
+item_id = "backpack_01"
+grid_width = 2
+grid_height = 3
+description = "A sturdy backpack. Adds one extra column to your inventory when worn."
+can_be_equipped = false
+equipment_slot = 2
+inventory_bonus_columns = 1
+weight = 5.0

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://d5axe"]
+
+[ext_resource type="Script" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/axe.tres" id="2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1"]
+size = Vector3(0.4, 0.15, 0.08)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(0.4, 0.15, 0.08)
+
+[node name="PickupAxe" type="RigidBody3D"]
+mass = 2.0
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
+mesh = SubResource("BoxMesh_1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
+shape = SubResource("BoxShape3D_1")

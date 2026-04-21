@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://j11xm1hiplck"]
+
+[ext_resource type="Script" uid="uid://e4fvndtu2sw3" path="res://inventory_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Flare"
+item_id = "flare_01"
+description = "Handheld emergency flare. Burns for 60 seconds."
+max_stack = 2
+weight = 0.5

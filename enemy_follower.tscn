@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b7xuak3p2qwj6"]
+
+[ext_resource type="Script" path="res://enemy_follower.gd" id="1_follower"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_follower"]
+height = 1.5
+radius = 0.35
+
+[node name="EnemyFollower" type="CharacterBody3D"]
+collision_layer = 1
+collision_mask = 1
+script = ExtResource("1_follower")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_follower")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Perk" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Perk.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+perk_name = "Dead Sprint"
+perk_id = "dead_sprint"
+description = "Run like your life depends on it. 10% faster sprint speed, but 10% faster stamina drain."
+sprint_speed_multiplier = 1.1
+stamina_drain_multiplier = 1.1

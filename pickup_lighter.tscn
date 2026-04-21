@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dtur0ikcxorp8"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/lighter.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://tyaqywrd3i1x" path="res://assets/lighter.glb" id="3_30120"]
+
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(0.11088134, 0.16696289, 0.048085935)
+
+[node name="PickupLighter" type="RigidBody3D" unique_id=733671679]
+collision_layer = 2
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1069122541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0003454592, 0.029311525, -0.0006054677)
+shape = SubResource("1")
+
+[node name="lighter" parent="." unique_id=49013896 instance=ExtResource("3_30120")]

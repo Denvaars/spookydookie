@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d3bandage"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/bandage.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://c5g1cfojecvck" path="res://assets/bandage.glb" id="3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rxhdu"]
+height = 0.22802734
+radius = 0.08
+
+[node name="PickupBandage" type="RigidBody3D" unique_id=1551772065]
+mass = 0.1
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="Model" parent="." unique_id=140275053 instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11527684, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=497939747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11594728, -0.0009219423)
+shape = SubResource("CylinderShape3D_rxhdu")

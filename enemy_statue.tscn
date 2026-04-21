@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c8vq3m2n5fyh7"]
+
+[ext_resource type="Script" path="res://enemy_statue.gd" id="1_enemy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_enemy"]
+height = 2.0
+radius = 0.4
+
+[node name="EnemyStatue" type="CharacterBody3D"]
+collision_layer = 1
+collision_mask = 1
+script = ExtResource("1_enemy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_enemy")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Perk" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Perk.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+perk_name = "Sharp Shooter"
+perk_id = "sharp_shooter"
+description = "Experienced with firearms. 35% faster weapon fire rate."
+weapon_fire_rate_multiplier = 1.35

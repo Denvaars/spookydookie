@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://u1wjndi5m8r7"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/flare_ammo.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dlvap1a1fhvve" path="res://assets/ammo_flare.glb" id="3_nndan"]
+
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(0.23418686, 0.100283355, 0.12)
+
+[node name="PickupFlareAmmo" type="RigidBody3D" unique_id=1729352264]
+collision_layer = 2
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1233621909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00044456124, 0.000613641, 0)
+shape = SubResource("1")
+
+[node name="ammo_flare" parent="." unique_id=200248234 instance=ExtResource("3_nndan")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)

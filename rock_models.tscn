@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://c5oo6eumluh37"]
+
+[ext_resource type="PackedScene" uid="uid://bbv07kci6pwyt" path="res://assets/forest/stone_1.glb" id="1_atcpr"]
+[ext_resource type="PackedScene" uid="uid://bf3sggnm4ofor" path="res://assets/forest/stone_2.glb" id="2_pcwpa"]
+[ext_resource type="PackedScene" uid="uid://d2julvxdw26r4" path="res://assets/forest/stone_3.glb" id="3_f8o4u"]
+[ext_resource type="PackedScene" uid="uid://lm4f446cnq0j" path="res://assets/forest/stone_4.glb" id="4_kshgn"]
+[ext_resource type="PackedScene" uid="uid://cd3hxvslyicd6" path="res://assets/forest/stone_5.glb" id="5_ga7m5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ukl4o"]
+size = Vector3(1.2661438, 0.64424133, 1.2886963)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_atcpr"]
+size = Vector3(3.4465332, 1.3358765, 2.6990967)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pcwpa"]
+size = Vector3(2.269043, 1.581604, 2.333496)
+
+[node name="Node3D" type="Node3D" unique_id=464846182]
+
+[node name="stone_1" parent="." unique_id=1608312469 instance=ExtResource("1_atcpr")]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stone_1" unique_id=1047082782]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stone_1/StaticBody3D" unique_id=920199342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005722046, 0.23038483, -0.078186035)
+visible = false
+shape = SubResource("BoxShape3D_ukl4o")
+
+[node name="stone_2" parent="." unique_id=389426218 instance=ExtResource("2_pcwpa")]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stone_2" unique_id=1095326667]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stone_2/StaticBody3D" unique_id=1801944624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.091674805, 0.5272522, 0.055480957)
+visible = false
+shape = SubResource("BoxShape3D_atcpr")
+
+[node name="stone_3" parent="." unique_id=1455639223 instance=ExtResource("3_f8o4u")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stone_3" unique_id=307208267]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stone_3/StaticBody3D" unique_id=656973831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0012207031, 0.5022888, -0.66674805)
+shape = SubResource("BoxShape3D_pcwpa")
+
+[node name="stone_4" parent="." unique_id=8959490 instance=ExtResource("4_kshgn")]
+visible = false
+
+[node name="stone_5" parent="." unique_id=1041665059 instance=ExtResource("5_ga7m5")]
+visible = false

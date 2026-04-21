@@ -1,0 +1,17 @@
+[gd_resource type="Sky" format=3 uid="uid://cotn76vd008eo"]
+
+[ext_resource type="Shader" uid="uid://dtswl3t4mxr3y" path="res://assets/resources/StarrySky.gdshader" id="1_xbvae"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4pt1"]
+shader = ExtResource("1_xbvae")
+shader_parameter/star_layers = 2
+shader_parameter/star_blend = 0.1
+shader_parameter/star_depth_blend = 0.1
+shader_parameter/flare_ratio = 0.1
+shader_parameter/star_height = 7.0
+shader_parameter/star_size = 10.0
+shader_parameter/twinkle_speed = 0.2
+shader_parameter/intensity = 0.4
+
+[resource]
+sky_material = SubResource("ShaderMaterial_j4pt1")

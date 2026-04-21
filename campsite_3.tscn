@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cjo6v51yc42ho"]
+
+[ext_resource type="PackedScene" uid="uid://cjcely111sov4" path="res://assets/tent.glb" id="1_f0irs"]
+[ext_resource type="PackedScene" path="res://campfire.tscn" id="2_gqu4t"]
+[ext_resource type="Script" uid="uid://db1lm6i0meyvc" path="res://loot_spawner.gd" id="3_4tkk5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nmw1m"]
+
+[node name="Campsite3" type="Node3D" unique_id=1143593266]
+
+[node name="tent" parent="." unique_id=1299098799 instance=ExtResource("1_f0irs")]
+transform = Transform3D(0.64278764, 0, -0.76604444, 0, 1, 0, 0.76604444, 0, 0.64278764, -4, 0, -2)
+
+[node name="tent3" parent="." unique_id=1201100669 instance=ExtResource("1_f0irs")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -3.5)
+
+[node name="tent2" parent="." unique_id=1952234337 instance=ExtResource("1_f0irs")]
+transform = Transform3D(-0.6427876, 0, -0.7660444, 0, 1, 0, 0.7660444, 0, -0.6427876, 4, 0, -2)
+
+[node name="Campfire" parent="." unique_id=1577886014 instance=ExtResource("2_gqu4t")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="InteractionBody" type="StaticBody3D" parent="Campfire" unique_id=355407089]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Campfire/InteractionBody" unique_id=307580925]
+transform = Transform3D(3.5, 0, 0, 0, 0.5, 0, 0, 0, 3.5, 0, 0.545, 0)
+shape = SubResource("CylinderShape3D_nmw1m")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1745099801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5220518, 0.51373553, 0)
+script = ExtResource("3_4tkk5")
+loot_table_name = "camping_supplies"
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=140638582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8026152, 0.5360844, -4.1746726)
+script = ExtResource("3_4tkk5")
+loot_table_name = "camping_supplies"
+
+[node name="Node3D3" type="Node3D" parent="." unique_id=1697642676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.680807, 0.33605087, -4.1746726)
+script = ExtResource("3_4tkk5")
+loot_table_name = "camping_supplies"

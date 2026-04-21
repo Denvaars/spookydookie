@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://cp6ola2i11lu4"]
+
+[ext_resource type="Script" uid="uid://e4fvndtu2sw3" path="res://inventory_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Flashlight"
+item_id = "flashlight_01"
+grid_width = 2
+description = "A portable flashlight. Essential for dark areas."

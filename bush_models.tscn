@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dnygjb3evyt4n"]
+
+[ext_resource type="PackedScene" uid="uid://3qf028lxltu2" path="res://assets/forest/fern_1.glb" id="1_ecmjo"]
+[ext_resource type="PackedScene" uid="uid://cjhbdtamb68ua" path="res://assets/forest/fern_2.glb" id="2_1act2"]
+[ext_resource type="PackedScene" uid="uid://chto8qjgglkfb" path="res://assets/forest/fern_3.glb" id="3_si3gw"]
+
+[node name="Node3D" type="Node3D" unique_id=2072368928]
+
+[node name="fern_1" parent="." unique_id=1143769986 instance=ExtResource("1_ecmjo")]
+
+[node name="fern_2" parent="." unique_id=641681252 instance=ExtResource("2_1act2")]
+
+[node name="fern_3" parent="." unique_id=487346251 instance=ExtResource("3_si3gw")]

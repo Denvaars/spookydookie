@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://djgl5v42yeumy"]
+
+[ext_resource type="Script" uid="uid://e4fvndtu2sw3" path="res://inventory_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Rifle Ammo"
+item_id = "rifle_ammo_01"
+description = "Box of .308 rifle ammunition."
+stackable = true
+max_stack = 5
+weight = 0.3

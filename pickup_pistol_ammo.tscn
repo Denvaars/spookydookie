@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d11pistolammo"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" uid="uid://4xeh2asm5l1v" path="res://items/pistol_ammo.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://bvm6qe38qghr8" path="res://assets/ammo_revolver.glb" id="3_lex36"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(0.18264404, 0.14928742, 0.19888917)
+
+[node name="PickupPistolAmmo" type="RigidBody3D" unique_id=26057001]
+mass = 0.2
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1376190866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.027784e-05, 0.00072097406, 0.0002868604)
+shape = SubResource("BoxShape3D_1")
+
+[node name="ammo_revolver" parent="." unique_id=626715210 instance=ExtResource("3_lex36")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)

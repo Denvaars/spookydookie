@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://df5us24i1mute"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/bear_meat.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dxofgermlyvc3" path="res://assets/meat_2.glb" id="3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6kipr"]
+size = Vector3(0.5942993, 0.07220459, 0.40093994)
+
+[node name="PickupBearMeat" type="RigidBody3D" unique_id=580703568]
+collision_layer = 2
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="Model" parent="." unique_id=592422614 instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1.3, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1972874259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0008239746, 0.031158447, -0.006011963)
+shape = SubResource("BoxShape3D_6kipr")

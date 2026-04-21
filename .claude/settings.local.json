@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(godot --version:*)",
+      "Bash(ls:*)",
+      "Bash(move enemy.gd enemy_statue.gd)",
+      "Bash(move enemy.tscn enemy_statue.tscn)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Bash(findstr:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(rm:*)",
+      "Bash(del nul)",
+      "Bash(git config:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(git rm:*)"
+    ]
+  }
+}

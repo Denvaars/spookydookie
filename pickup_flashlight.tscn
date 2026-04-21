@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d1flashlight"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/flashlight.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dpuskw55sk0sf" path="res://assets/flashlight.glb" id="3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_liges"]
+size = Vector3(0.101257324, 0.49279785, 0.09780884)
+
+[node name="PickupFlashlight" type="RigidBody3D" unique_id=913505825]
+mass = 0.3
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="Model" parent="." unique_id=2123183962 instance=ExtResource("3")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2004847706]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.030599877, -3.0521387e-05, 0.0019073486)
+shape = SubResource("BoxShape3D_liges")

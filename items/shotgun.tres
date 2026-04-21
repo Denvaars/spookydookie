@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://bthnt0axu1iob"]
+
+[ext_resource type="Script" uid="uid://e4fvndtu2sw3" path="res://inventory_item.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+item_name = "Shotgun"
+item_id = "shotgun_01"
+grid_width = 2
+grid_height = 3
+description = "A pump-action shotgun. Powerful close-range weapon."
+weight = 8.0

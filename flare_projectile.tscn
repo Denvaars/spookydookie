@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://flare_projectile_001"]
+
+[ext_resource type="Script" path="res://flare_projectile.gd" id="1"]
+
+[node name="FlareProjectile" type="RigidBody3D"]
+collision_layer = 1
+collision_mask = 1
+mass = 0.1
+gravity_scale = 1.0
+script = ExtResource("1")

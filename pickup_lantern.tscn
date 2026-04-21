@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://byrixaijic164"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/lantern.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dfsva7p70igt" path="res://assets/lantern_off.glb" id="3_guwa8"]
+
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(0.25809327, 0.6432007, 0.29506835)
+
+[node name="PickupLantern" type="RigidBody3D" unique_id=2057902235]
+collision_layer = 2
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=86276481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0028991662, -0.06195678, -0.0037353523)
+shape = SubResource("1")
+
+[node name="lantern_off" parent="." unique_id=1048142806 instance=ExtResource("3_guwa8")]

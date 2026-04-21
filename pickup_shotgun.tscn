@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d4shotgun"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/shotgun.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dvxmgwg8n5m8b" path="res://assets/shotgun.glb" id="3_waj6a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(4.9908814, 0.21171874, 0.8984033)
+
+[node name="PickupShotgun" type="RigidBody3D" unique_id=1763184554]
+mass = 3.5
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1065007996]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.005084157, 0.40039065, -0.123596705)
+shape = SubResource("BoxShape3D_1")
+
+[node name="shotgun" parent="." unique_id=2084913660 instance=ExtResource("3_waj6a")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.4, 0)

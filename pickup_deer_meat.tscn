@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://jkmxdmlsuevx"]
+
+[ext_resource type="Script" uid="uid://bwaq5kw0suwob" path="res://pickup_item.gd" id="1"]
+[ext_resource type="Resource" path="res://items/deer_meat.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://cnq6r5orn6o63" path="res://assets/meat_1.glb" id="3"]
+
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(0.5980957, 0.08, 0.42751464)
+
+[node name="PickupDeerMeat" type="RigidBody3D" unique_id=935176839]
+collision_layer = 2
+script = ExtResource("1")
+item_resource = ExtResource("2")
+
+[node name="Model" parent="." unique_id=2030611662 instance=ExtResource("3")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=458279890]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0065673813, 0.04, -0.007922351)
+shape = SubResource("1")

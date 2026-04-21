@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://basic_enemy_001"]
+
+[ext_resource type="Script" path="res://enemy_basic.gd" id="1_basic"]
+
+[node name="EnemyBasic" type="CharacterBody3D"]
+script = ExtResource("1_basic")
+collision_layer = 1
+collision_mask = 1
