@@ -28,6 +28,9 @@ func _ready() -> void:
 	# Add to group so player can find us
 	add_to_group("forest_generator")
 
+	# Allow this node to process even when paused (for generation)
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 	if generation_seed == 0:
 		_rng.randomize()
 	else:
@@ -35,8 +38,15 @@ func _ready() -> void:
 
 	print("ForestGenerator: seed = %d" % _rng.seed)
 
+	# Pause the game during generation to prevent player from spawning/moving
+	get_tree().paused = true
+
 	await _generate()
 	await _spawn_player()
+
+	# Unpause the game now that generation is complete
+	get_tree().paused = false
+	print("ForestGenerator: Game unpaused - ready to play!")
 
 
 func _generate() -> void:
