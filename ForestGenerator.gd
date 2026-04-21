@@ -35,29 +35,38 @@ func _ready() -> void:
 
 	print("ForestGenerator: seed = %d" % _rng.seed)
 
-	_generate()
-	_spawn_player()
+	await _generate()
+	await _spawn_player()
 
 
 func _generate() -> void:
+	print("ForestGenerator: Starting world generation...")
+
 	# Terrain
+	print("ForestGenerator: [1/8] Generating terrain...")
 	terrain = TerrainGenerator.new()
 	terrain.name = "Terrain"
 	add_child(terrain)
 	seed(_rng.randi())
 	terrain.setup(terrain_width, terrain_length, _rng.randi())
+	await get_tree().process_frame  # Yield to prevent freeze
 
 	# Paths
+	print("ForestGenerator: [2/8] Generating paths...")
 	path_gen = PathGenerator.new()
 	path_gen.name = "Paths"
 	add_child(path_gen)
 	seed(_rng.randi())
 	path_gen.generate(terrain)
+	await get_tree().process_frame  # Yield to prevent freeze
 
 	# Rebuild terrain with path texture blending
+	print("ForestGenerator: [3/8] Blending path textures...")
 	terrain.set_path_generator(path_gen)
+	await get_tree().process_frame  # Yield to prevent freeze
 
 	# POIs (Points of Interest - platforms/houses)
+	print("ForestGenerator: [4/8] Spawning POIs (campsites/cabins)...")
 	poi_generator = POIGenerator.new()
 	poi_generator.name = "POIs"
 	add_child(poi_generator)
@@ -65,36 +74,45 @@ func _generate() -> void:
 	poi_generator.initialize(terrain, path_gen)
 	poi_generator.generate()
 	print("ForestGenerator: POI generation complete")
+	await get_tree().process_frame  # Yield to prevent freeze
 
 	# Danger Zones (initialize before trees so trees can use danger levels)
+	print("ForestGenerator: [5/8] Initializing danger zones...")
 	danger_manager = DangerZoneManager.new()
 	danger_manager.name = "DangerZones"
 	add_child(danger_manager)
 	danger_manager.initialize(path_gen)
 	print("ForestGenerator: danger zone system initialized")
+	await get_tree().process_frame  # Yield to prevent freeze
 
 	# Trees (pass danger manager to scale trees based on danger level)
+	print("ForestGenerator: [6/8] Placing 5000 trees (this may take a moment)...")
 	tree_placer = TreePlacer.new()
 	tree_placer.name = "Trees"
 	add_child(tree_placer)
 	seed(_rng.randi())
 	tree_placer.place(terrain, path_gen, tree_scale_horizontal, tree_scale_vertical, poi_generator, danger_manager)
+	await get_tree().process_frame  # Yield to prevent freeze
 
 	# Rocks (after trees, with danger scaling)
+	print("ForestGenerator: [7/8] Placing rocks...")
 	rock_placer = RockPlacer.new()
 	rock_placer.name = "Rocks"
 	add_child(rock_placer)
 	seed(_rng.randi())
 	rock_placer.place(terrain, path_gen, poi_generator, danger_manager)
 	print("ForestGenerator: rock placement complete")
+	await get_tree().process_frame  # Yield to prevent freeze
 
 	# Bushes (after rocks, decorative)
+	print("ForestGenerator: [8/8] Placing bushes...")
 	bush_placer = BushPlacer.new()
 	bush_placer.name = "Bushes"
 	add_child(bush_placer)
 	seed(_rng.randi())
 	bush_placer.place(terrain, path_gen, poi_generator)
 	print("ForestGenerator: bush placement complete")
+	await get_tree().process_frame  # Yield to prevent freeze
 
 	# Spawn Manager (initialized later when player is found)
 	spawn_manager = SpawnManager.new()
@@ -112,6 +130,8 @@ func _generate() -> void:
 	ambiance_system.name = "AmbianceSystem"
 	add_child(ambiance_system)
 	print("ForestGenerator: ambiance system created")
+
+	print("ForestGenerator: ✓ World generation complete!")
 
 
 
