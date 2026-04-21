@@ -292,6 +292,44 @@ func unequip_item(item: InventoryItem) -> void:
 	player_inventory.unequip_item(item)
 
 
+# ── Property Accessors (forward to components) ───────────────────────────────
+
+## Get equipped weapon item (accessed by weapon scripts)
+var equipped_weapon_item: InventoryItem:
+	get:
+		return player_inventory.equipped_weapon_item if player_inventory else null
+
+## Get equipped weapon node (accessed by weapon scripts)
+var equipped_weapon: Node3D:
+	get:
+		return player_inventory.equipped_weapon if player_inventory else null
+
+## Get current weapon type (accessed by weapon scripts)
+var current_weapon_type: String:
+	get:
+		return player_inventory.current_weapon_type if player_inventory else ""
+
+## Get equipped item (accessed by inventory UI)
+var equipped_item: InventoryItem:
+	get:
+		return player_inventory.equipped_item if player_inventory else null
+
+## Get current health (accessed by enemies)
+var current_health: float:
+	get:
+		return player_health.current_health if player_health else 0.0
+
+## Get max health (accessed by UI)
+var max_health: float:
+	get:
+		return player_health.max_health if player_health else 100.0
+
+## Check if player is dead (accessed by enemies)
+var is_dead: bool:
+	get:
+		return player_health.is_dead if player_health else false
+
+
 # ── Debug Spawn Functions ────────────────────────────────────────────────────
 
 func _spawn_test_bear() -> void:
