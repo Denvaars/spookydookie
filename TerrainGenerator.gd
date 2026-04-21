@@ -4,8 +4,8 @@ extends Node3D
 ## Procedural terrain using FastNoiseLite.
 ## Builds a long rectangular corridor mesh with analytical normals and trimesh collision.
 
-const RES_W: int = 45          # Vertex columns (X axis) - optimized for load time
-const RES_L: int = 350         # Vertex rows    (Z axis) - optimized for load time
+const RES_W: int = 60          # Vertex columns (X axis) - reduced for performance
+const RES_L: int = 400         # Vertex rows    (Z axis) - reduced for performance
 const HEIGHT_SCALE: float = 5.0
 
 @export var grass_texture_path: String = "res://Grass_20-256x256.png"  # Path to grass texture (e.g. "res://textures/grass.png")

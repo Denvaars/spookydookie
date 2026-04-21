@@ -3,7 +3,7 @@ extends Node3D
 
 ## Places bush/fern models throughout the forest.
 
-const BUSH_COUNT: int = 1200
+const BUSH_COUNT: int = 2000
 const PATH_CLEAR_RADIUS: float = 4.0  # Bushes further from path
 const POI_CLEAR_RADIUS: float = 5.0  # Can be near POIs
 const CHUNK_SIZE: float = 100.0
